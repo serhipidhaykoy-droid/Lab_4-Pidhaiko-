@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare — Медичний центр</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">
+                <i class="fas fa-heart-pulse me-2"></i>MediCare
+            </a>
+        </div>
+    </nav>
+
+    <section id="doctors" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Наші лікарі</h2>
+            
+            <div class="text-center mb-5">
+                <div class="btn-group flex-wrap shadow-sm">
+                    <button class="btn btn-outline-primary active" onclick="filterDoctors('all', this)">Всі</button>
+                    <button class="btn btn-outline-primary" onclick="filterDoctors('cardiology', this)">Кардіологія</button>
+                    <button class="btn btn-outline-primary" onclick="filterDoctors('surgery', this)">Хірургія</button>
+                    <button class="btn btn-outline-primary" onclick="filterDoctors('pediatrics', this)">Педіатрія</button>
+                    <button class="btn btn-outline-primary" onclick="filterDoctors('therapy', this)">Терапія</button>
+                </div>
+            </div>
+
+            <div class="row g-4" id="doctors-container"></div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Калькулятор послуг</h2>
+            <div class="card p-4 shadow-sm border-0 mx-auto" style="max-width: 600px;" id="calc-card">
+                <div id="services-checkboxes">
+                    </div>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold mb-0">Разом: <span id="total-price" class="text-primary">0</span> грн</h4>
+                    <button class="btn btn-outline-dark btn-sm" onclick="printCheck()">
+                        <i class="fas fa-print me-2"></i>Друк
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="appointment" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <div class="bg-white p-5 rounded shadow border-top border-primary border-5">
+                        <h3 class="fw-bold mb-4 text-center">Запис на прийом</h3>
+                        <form id="appointment-form" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Ваше ПІБ</label>
+                                <input type="text" id="name" class="form-control" placeholder="Петренко Петро Петрович" required>
+                                <div class="invalid-feedback">Введіть повне ім'я (мінімум 3 літери).</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Телефон</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+380..." required>
+                                <div class="invalid-feedback">Формат: +380XXXXXXXXX</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Послуга</label>
+                                <select id="service-select" class="form-select" required>
+                                    <option value="" selected disabled>Оберіть послугу...</option>
+                                    </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Лікар</label>
+                                <select id="doctor-select" class="form-select" required onchange="resetSchedule()">
+                                    <option value="" selected disabled>Оберіть лікаря...</option>
+                                    </select>
+                            </div>
+
+                            <div class="row g-2 mb-4">
+                                <div class="col-6">
+                                    <label class="form-label fw-bold small">Дата</label>
+                                    <input type="date" id="date-picker" class="form-control" disabled onchange="loadTimeSlots()">
+                                    <div class="form-text">Спочатку оберіть лікаря.</div>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-bold small">Час</label>
+                                    <select id="time-select" class="form-select" disabled required>
+                                        <option value="">Оберіть час...</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-pill">Підтвердити запис</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="doctorModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalName"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <img id="modalImg" src="" class="rounded-circle shadow-sm" width="120" height="120">
+                    </div>
+                    <p><strong>Освіта:</strong> <span id="modalEdu"></span></p>
+                    <p><strong>Мови:</strong> <span id="modalLang"></span></p>
+                    <p><strong>Досвід:</strong> <span id="modalExp"></span> років</p>
+                    <p class="text-muted" id="modalDesc"></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#appointment" class="btn btn-primary w-100" onclick="document.querySelector('.btn-close').click()">Записатися до цього лікаря</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat-widget" class="card shadow border-0">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-robot me-2"></i>Помічник</span>
+            <button class="btn-close btn-close-white small" onclick="toggleChat()"></button>
+        </div>
+        <div class="card-body" id="chat-body" style="height: 250px; overflow-y: auto;">
+            <div class="bot-msg">Вітаю! Оберіть, що вас турбує:</div>
+            <div class="d-grid gap-2 mt-2" id="chat-options">
+                <button class="btn btn-sm btn-outline-secondary" onclick="chatDiagnose('heart')">Біль у серці / тиск</button>
+                <button class="btn btn-sm btn-outline-secondary" onclick="chatDiagnose('stomach')">Біль у животі</button>
+                <button class="btn btn-sm btn-outline-secondary" onclick="chatDiagnose('child')">Огляд дитини</button>
+                <button class="btn btn-sm btn-outline-secondary" onclick="chatDiagnose('checkup')">Загальний огляд</button>
+            </div>
+        </div>
+    </div>
+    <button id="chat-btn" class="btn btn-primary rounded-circle shadow-lg" onclick="toggleChat()">
+        <i class="fas fa-comment-medical fa-lg"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

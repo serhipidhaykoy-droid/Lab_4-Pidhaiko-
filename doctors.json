@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "name": "Петренко Олена Іванівна",
+    "specialty": "Кардіолог",
+    "type": "cardiology",
+    "experience": 15,
+    "photo": "https://randomuser.me/api/portraits/women/44.jpg",
+    "education": "НМУ ім. Богомольця",
+    "languages": ["українська", "англійська"],
+    "description": "Лікар вищої категорії. Проводить діагностику та лікування серцево-судинних захворювань.",
+    "schedule": {
+      "monday": ["09:00", "10:00", "11:00"],
+      "wednesday": ["14:00", "15:00", "16:00"],
+      "friday": ["09:00", "10:00"]
+    }
+  },
+  {
+    "id": 2,
+    "name": "Мельник Андрій Вікторович",
+    "specialty": "Хірург",
+    "type": "surgery",
+    "experience": 20,
+    "photo": "https://randomuser.me/api/portraits/men/85.jpg",
+    "education": "Вінницький національний медичний університет",
+    "languages": ["українська", "польська"],
+    "description": "Спеціалізується на малоінвазивній хірургії.",
+    "schedule": {
+      "tuesday": ["10:00", "11:00", "12:00"],
+      "thursday": ["10:00", "11:00", "12:00"]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Сидоренко Марія Олександрівна",
+    "specialty": "Педіатр",
+    "type": "pediatrics",
+    "experience": 8,
+    "photo": "https://randomuser.me/api/portraits/women/68.jpg",
+    "education": "Тернопільський державний медичний університет",
+    "languages": ["українська"],
+    "description": "Турботливий лікар для ваших малюків.",
+    "schedule": {
+      "monday": ["09:00", "10:00", "11:00"],
+      "tuesday": ["09:00", "10:00", "11:00"],
+      "wednesday": ["09:00", "10:00", "11:00"]
+    }
+  },
+  {
+    "id": 4,
+    "name": "Гончар Василь Петрович",
+    "specialty": "Терапевт",
+    "type": "therapy",
+    "experience": 5,
+    "photo": "https://randomuser.me/api/portraits/men/32.jpg",
+    "education": "НМУ ім. Богомольця",
+    "languages": ["українська", "англійська", "німецька"],
+    "description": "Сімейний лікар, спеціаліст із загальної діагностики.",
+    "schedule": {
+      "monday": ["14:00", "15:00", "16:00"],
+      "friday": ["14:00", "15:00", "16:00"]
+    }
+  }
+]

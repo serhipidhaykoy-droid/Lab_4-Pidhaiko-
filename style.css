@@ -1,0 +1,29 @@
+body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; }
+
+/* Картка */
+.doctor-card {
+    transition: transform 0.2s;
+    background: #fff;
+}
+.doctor-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.doctor-card img { object-fit: cover; }
+
+/* Чат-бот */
+#chat-btn {
+    position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 1000;
+}
+#chat-widget {
+    position: fixed; bottom: 90px; right: 20px; width: 300px; display: none; z-index: 1000;
+    border-radius: 15px; font-size: 0.9rem;
+}
+.bot-msg {
+    background: #e9ecef; padding: 8px 12px; border-radius: 12px; margin-bottom: 8px; display: inline-block;
+}
+
+/* ДРУК */
+@media print {
+    body * { visibility: hidden; }
+    #calculator, #calculator * { visibility: visible; }
+    #calculator { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none !important; }
+    .btn { display: none !important; } /* Ховаємо кнопки при друку */
+}

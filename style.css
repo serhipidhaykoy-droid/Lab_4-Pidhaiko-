@@ -1,29 +1,188 @@
-body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; }
+:root {
+    --primary-color: #0d6efd; /* Професійний синій */
+    --secondary-color: #f8f9fa;
+    --text-dark: #2d3436;
+}
 
-/* Картка */
+/* === БАЗОВІ СТИЛІ === */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--secondary-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* === HERO SECTION (ШАПКА) === */
+.hero-section {
+    background: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    height: 85vh;
+    position: relative;
+}
+
+.hero-section .overlay {
+    background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 60%, rgba(255,255,255,0) 100%);
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+/* === ЗАГОЛОВКИ СЕКЦІЙ === */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* === КАРТКИ ПОСЛУГ === */
+.service-card {
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    border-radius: 20px;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(13, 110, 253, 0.1) !important;
+}
+
+.icon-box {
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .icon-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* === КАРТКИ ЛІКАРІВ (ОБ'ЄДНАНО) === */
 .doctor-card {
-    transition: transform 0.2s;
     background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.doctor-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.doctor-card img { object-fit: cover; }
 
-/* Чат-бот */
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.doctor-card img {
+    border: 4px solid #fff;
+    transition: all 0.3s ease;
+    object-fit: cover; /* Важливо для збереження пропорцій обличчя */
+}
+
+.doctor-card:hover img {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+}
+
+/* === СЕРТИФІКАТИ === */
+.cert-card {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+    background-color: #fff;
+}
+
+.cert-card:hover {
+    transform: scale(1.03);
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Контейнер для зображення документа */
+.cert-img-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Стиль самого зображення */
+.cert-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.cert-card:hover .cert-img {
+    transform: scale(1.05);
+}
+
+/* === ФОРМИ ТА КНОПКИ === */
+.form-control, .form-select {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.hover-scale {
+    transition: all 0.2s ease;
+}
+
+.hover-scale:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* === ЧАТ-БОТ (З другого файлу) === */
 #chat-btn {
-    position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 1000;
-}
-#chat-widget {
-    position: fixed; bottom: 90px; right: 20px; width: 300px; display: none; z-index: 1000;
-    border-radius: 15px; font-size: 0.9rem;
-}
-.bot-msg {
-    background: #e9ecef; padding: 8px 12px; border-radius: 12px; margin-bottom: 8px; display: inline-block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
 }
 
-/* ДРУК */
+#chat-widget {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    display: none;
+    z-index: 1000;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.bot-msg {
+    background: #e9ecef;
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+/* === ДРУК (Для калькулятора) === */
 @media print {
     body * { visibility: hidden; }
     #calculator, #calculator * { visibility: visible; }
-    #calculator { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none !important; }
+    #calculator { 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        box-shadow: none !important; 
+    }
     .btn { display: none !important; } /* Ховаємо кнопки при друку */
 }

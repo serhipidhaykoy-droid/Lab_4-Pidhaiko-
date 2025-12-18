@@ -28,6 +28,11 @@
                     <li class="nav-item"><a class="nav-link" href="#doctors">Лікарі</a></li>
                     <li class="nav-item"><a class="nav-link" href="#calculator">Ціни</a></li>
                     <li class="nav-item ms-lg-3">
+<li class="nav-item"><a class="nav-link" href="#certificates">Ліцензії</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="tel:+380440000000" class="btn btn-primary rounded-pill px-4 shadow-sm">
+                            <i class="fas fa-phone-alt me-2"></i>+38 (044) 000-00-00
+                        </a>
                         <a href="#appointment" class="btn btn-primary rounded-pill px-4 shadow-sm">Записатися</a>
                     </li>
                 </ul>
@@ -55,7 +60,7 @@
     <section id="services" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold section-title">Наші напрямки</h2>
+<h2 class="fw-bold section-title">Наші напрямки</h2>
                 <p class="text-muted">Надаємо повний цикл медичної допомоги</p>
             </div>
             <div class="row g-4">
@@ -66,7 +71,7 @@
                                 <i class="fas fa-stethoscope fa-2x"></i>
                             </div>
                             <h4 class="card-title fw-bold">Терапія</h4>
-                            <p class="card-text text-muted small">Комплексний огляд та супровід лікування.</p>
+                            <p class="card-text text-muted small">Комплексний огляд, постановка діагнозу та супровід лікування внутрішніх захворювань.</p>
                         </div>
                     </div>
                 </div>
@@ -77,7 +82,29 @@
                                 <i class="fas fa-heartbeat fa-2x"></i>
                             </div>
                             <h4 class="card-title fw-bold">Кардіологія</h4>
-                            <p class="card-text text-muted small">ЕКГ, УЗД серця та лікування серцево-судинних захворювань.</p>
+                            <p class="card-text text-muted small">ЕКГ, УЗД серця та лікування серцево-судинних захворювань за європейськими протоколами.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm service-card p-3">
+                        <div class="card-body text-center">
+                            <div class="icon-box bg-primary-subtle text-primary mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="fas fa-baby fa-2x"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Педіатрія</h4>
+                            <p class="card-text text-muted small">Турбота про здоров'я малюків від народження: планові огляди та вакцинація.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm service-card p-3">
+                        <div class="card-body text-center">
+                            <div class="icon-box bg-primary-subtle text-primary mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="fas fa-microscope fa-2x"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Лабораторія</h4>
+                            <p class="card-text text-muted small">Швидкі та точні лабораторні дослідження на базі власного діагностичного центру.</p>
                         </div>
                     </div>
                 </div>
@@ -88,30 +115,22 @@
                                 <i class="fas fa-user-md fa-2x"></i>
                             </div>
                             <h4 class="card-title fw-bold">Хірургія</h4>
-                            <p class="card-text text-muted small">Малоінвазивні операції "одного дня".</p>
+                            <p class="card-text text-muted small">Малоінвазивні операції "одного дня" з використанням сучасного лазерного обладнання.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm service-card p-3">
+                        <div class="card-body text-center">
+                            <div class="icon-box bg-primary-subtle text-primary mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="fas fa-procedural fa-2x"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Діагностика</h4>
+                            <p class="card-text text-muted small">Цифровий рентген, МРТ та КТ для максимально точного виявлення патологій.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="doctors" class="py-5 bg-white">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-4 section-title">Наші лікарі</h2>
-            
-            <div class="text-center mb-5">
-                <div class="btn-group flex-wrap shadow-sm">
-                    <button class="btn btn-outline-primary active" onclick="filterDoctors('all', this)">Всі</button>
-                    <button class="btn btn-outline-primary" onclick="filterDoctors('cardiology', this)">Кардіологія</button>
-                    <button class="btn btn-outline-primary" onclick="filterDoctors('surgery', this)">Хірургія</button>
-                    <button class="btn btn-outline-primary" onclick="filterDoctors('pediatrics', this)">Педіатрія</button>
-                    <button class="btn btn-outline-primary" onclick="filterDoctors('therapy', this)">Терапія</button>
-                </div>
-            </div>
-
-            <div class="row g-4 justify-content-center" id="doctors-container">
-                </div>
         </div>
     </section>
 
@@ -189,29 +208,41 @@
         </div>
     </section>
 
-    <section id="certificates" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-5 section-title">Ліцензії та сертифікати</h2>
-            <div class="row justify-content-center g-4">
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="cert-card border rounded p-3 shadow-sm bg-white h-100">
-                        <div class="cert-img-container" style="height: 200px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-file-medical fa-5x text-muted"></i>
-                        </div>
-                        <p class="small mt-3 fw-bold mb-0">Державна ліцензія МОЗ</p>
+  <section id="certificates" class="py-5 bg-white">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-5 section-title">Ліцензії та сертифікати</h2>
+        <div class="row justify-content-center g-4">
+            
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="cert-card border rounded p-3 shadow-sm h-100">
+                    <div class="cert-img-container">
+                        <img src="license_laserone.jpg" class="img-fluid rounded cert-img" alt="Ліцензія">
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="cert-card border rounded p-3 shadow-sm bg-white h-100">
-                        <div class="cert-img-container" style="height: 200px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-award fa-5x text-muted"></i>
-                        </div>
-                        <p class="small mt-3 fw-bold mb-0">Акредитаційний сертифікат</p>
-                    </div>
+                    <p class="small mt-3 fw-bold mb-0">Державна ліцензія МОЗ</p>
                 </div>
             </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="cert-card border rounded p-3 shadow-sm h-100">
+                    <div class="cert-img-container">
+                        <img src="20160718Акредитація.jpg" class="img-fluid rounded cert-img" alt="Акредитація">
+                    </div>
+                    <p class="small mt-3 fw-bold mb-0">Акредитаційний сертифікат</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="cert-card border rounded p-3 shadow-sm h-100">
+                    <div class="cert-img-container">
+                        <img src="20110630114518_1_2Свідоцтво.jpg" class="img-fluid rounded cert-img" alt="Свідоцтво">
+                    </div>
+                    <p class="small mt-3 fw-bold mb-0">Свідоцтво про реєстрацію</p>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="bg-dark text-white py-5 mt-auto">
         <div class="container">

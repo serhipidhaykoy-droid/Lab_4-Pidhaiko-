@@ -60,5 +60,35 @@
       "monday": ["14:00", "15:00", "16:00"],
       "friday": ["14:00", "15:00", "16:00"]
     }
+  },
+  {
+    "id": 5,
+    "name": "Литвин Ольга Миколаївна",
+    "specialty": "Терапевт",
+    "type": "therapy",
+    "experience": 12,
+    "photo": "https://randomuser.me/api/portraits/women/65.jpg",
+    "education": "Харківський національний медичний університет",
+    "languages": ["українська"],
+    "description": "Експерт з профілактичної медицини та здорового способу життя.",
+    "schedule": {
+      "tuesday": ["09:00", "12:00"],
+      "thursday": ["09:00", "12:00"]
+    }
+  },
+  {
+    "id": 6,
+    "name": "Бондаренко Ігор Васильович",
+    "specialty": "Кардіолог",
+    "type": "cardiology",
+    "experience": 18,
+    "photo": "https://randomuser.me/api/portraits/men/55.jpg",
+    "education": "Дніпровський державний медичний університет",
+    "languages": ["українська", "англійська"],
+    "description": "Спеціалізується на реабілітації після інфарктів.",
+    "schedule": {
+      "monday": ["15:00", "17:00"],
+      "friday": ["15:00", "17:00"]
+    }
   }
 ]

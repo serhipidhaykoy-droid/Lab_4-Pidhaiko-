@@ -134,7 +134,26 @@
         </div>
     </section>
 
-    <section id="calculator" class="py-5 bg-light">
+    <section id="doctors" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4 section-title">Наші лікарі</h2>
+            
+            <div class="text-center mb-5">
+                <div class="btn-group flex-wrap shadow-sm">
+                    <button class="btn btn-outline-primary active" onclick="filterDoctors('all', this)">Всі</button>
+                    <button class="btn btn-outline-primary" onclick="filterDoctors('cardiology', this)">Кардіологія</button>
+                    <button class="btn btn-outline-primary" onclick="filterDoctors('surgery', this)">Хірургія</button>
+                    <button class="btn btn-outline-primary" onclick="filterDoctors('pediatrics', this)">Педіатрія</button>
+                    <button class="btn btn-outline-primary" onclick="filterDoctors('therapy', this)">Терапія</button>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center" id="doctors-container">
+                </div>
+        </div>
+    </section>
+
+<section id="calculator" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center fw-bold mb-4 section-title">Калькулятор послуг</h2>
             <div class="card p-4 shadow-sm border-0 mx-auto bg-white" style="max-width: 600px;" id="calc-card">
